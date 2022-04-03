@@ -1,0 +1,8 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true
+  },
+  "editor.formatOnSave": true,
+  "javascript.format.enable": false,
+  "eslint.enable": true
+}
