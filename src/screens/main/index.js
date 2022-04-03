@@ -1,20 +1,30 @@
+import Selector from 'components/Selector';
 import Text from 'components/Text';
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {SafeAreaView, StyleSheet} from 'react-native';
+import Month from './components/Month';
 
 const Main = () => {
+  const componentList = [
+    <Text>Day Component</Text>,
+    <Text>Week Component</Text>,
+    <Month />,
+  ];
+
   return (
-    <View style={styles.container}>
-      <Text>Main Screen</Text>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <Selector
+        labels={['Day', 'Week', 'Month']}
+        components={componentList}
+        defaultIndex={2}
+      />
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'space-around',
   },
 });
 
