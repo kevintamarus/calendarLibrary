@@ -1,17 +1,18 @@
 import React from 'react';
-import {Calendar as CalendarLib} from 'react-native-calendars';
+import {StyleSheet} from 'react-native';
+import {Calendar} from 'react-native-calendars';
 import colors from 'styles/colors';
 
-const Month = () => {
+const Month = ({setSelectedDay, navigateToTab}) => {
+  const handleDayPress = day => {
+    setSelectedDay(day);
+    navigateToTab(0);
+  };
+
   return (
-    <CalendarLib
-      // Specify style for calendar container element. Default = {}
-      style={{
-        borderWidth: 1,
-        borderColor: 'gray',
-        height: 350,
-      }}
-      // Specify theme properties to override specific styles for calendar parts. Default = {}
+    <Calendar
+      style={styles.mainStyle}
+      onDayPress={handleDayPress}
       theme={{
         backgroundColor: '#ffffff',
         calendarBackground: '#ffffff',
@@ -41,5 +42,13 @@ const Month = () => {
     />
   );
 };
+
+const styles = StyleSheet.create({
+  mainStyle: {
+    borderWidth: 1,
+    borderColor: 'gray',
+    height: 350,
+  },
+});
 
 export default Month;

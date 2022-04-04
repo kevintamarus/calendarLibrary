@@ -10,6 +10,8 @@ const Selector = ({labels, components, defaultIndex}) => {
     setSelectedIndex(index);
   };
 
+  const CurrentComponent = components[selectedIndex];
+
   return (
     <>
       <View style={styles.labelContainer}>
@@ -25,7 +27,7 @@ const Selector = ({labels, components, defaultIndex}) => {
           </TouchableHighlight>
         ))}
       </View>
-      {components[selectedIndex]}
+      {CurrentComponent}
     </>
   );
 };

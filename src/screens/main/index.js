@@ -1,14 +1,17 @@
 import Selector from 'components/Selector';
 import Text from 'components/Text';
-import React from 'react';
+import React, {useState} from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
+import Day from './components/Day';
 import Month from './components/Month';
 
 const Main = () => {
+  const [selectedDay, setSelectedDay] = useState(null);
+
   const componentList = [
-    <Text>Day Component</Text>,
+    <Day {...{selectedDay, setSelectedDay}} />,
     <Text>Week Component</Text>,
-    <Month />,
+    <Month {...{selectedDay, setSelectedDay}} />,
   ];
 
   return (
