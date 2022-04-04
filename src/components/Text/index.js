@@ -14,14 +14,13 @@ const Text = ({style, children, ...textProps}) => (
 const styles = StyleSheet.create({
   defaultStyle: {
     fontSize: 14,
-    color: colors.Blue,
+    color: colors.Black,
   },
 });
 
 Text.defaultProps = {
   style: null,
   children: null,
-  fontFamily: 'regular',
 };
 
 export default Text;
