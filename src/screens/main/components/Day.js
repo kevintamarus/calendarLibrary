@@ -3,6 +3,7 @@ import React from 'react';
 import {StyleSheet, View} from 'react-native';
 
 const Day = ({selectedDay}) => {
+  console.log('selected day', selectedDay);
   return (
     <View style={styles.container}>
       {selectedDay ? (

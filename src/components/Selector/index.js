@@ -11,7 +11,7 @@ const Selector = forwardRef(({labels, components, defaultIndex}, ref) => {
   };
 
   useImperativeHandle(ref, () => ({
-    changeTabToDay() {
+    selectFirstTab() {
       setSelectedIndex(0);
     },
   }));

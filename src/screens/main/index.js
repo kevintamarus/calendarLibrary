@@ -10,7 +10,7 @@ const Main = () => {
   const changeTabRef = useRef();
 
   const changeTabToDay = () => {
-    changeTabRef.current.changeTabToDay();
+    changeTabRef.current.selectFirstTab();
   };
 
   const componentList = [
