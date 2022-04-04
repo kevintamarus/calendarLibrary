@@ -1,16 +1,20 @@
 import Text from 'components/Text';
-import React, {useState} from 'react';
+import React, {forwardRef, useImperativeHandle, useState} from 'react';
 import {StyleSheet, TouchableHighlight, View} from 'react-native';
 import colors from 'styles/colors';
 
-const Selector = ({labels, components, defaultIndex}) => {
+const Selector = forwardRef(({labels, components, defaultIndex}, ref) => {
   const [selectedIndex, setSelectedIndex] = useState(defaultIndex);
 
   const handleLabelPress = index => {
     setSelectedIndex(index);
   };
 
-  const CurrentComponent = components[selectedIndex];
+  useImperativeHandle(ref, () => ({
+    changeTabToDay() {
+      setSelectedIndex(0);
+    },
+  }));
 
   return (
     <>
@@ -27,10 +31,10 @@ const Selector = ({labels, components, defaultIndex}) => {
           </TouchableHighlight>
         ))}
       </View>
-      {CurrentComponent}
+      {components[selectedIndex]}
     </>
   );
-};
+});
 
 const styles = StyleSheet.create({
   labelContainer: {

@@ -3,10 +3,10 @@ import {StyleSheet} from 'react-native';
 import {Calendar} from 'react-native-calendars';
 import colors from 'styles/colors';
 
-const Month = ({setSelectedDay, navigateToTab}) => {
+const Month = ({setSelectedDay, changeTabToDay}) => {
   const handleDayPress = day => {
     setSelectedDay(day);
-    navigateToTab(0);
+    changeTabToDay();
   };
 
   return (

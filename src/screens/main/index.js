@@ -1,22 +1,28 @@
 import Selector from 'components/Selector';
 import Text from 'components/Text';
-import React, {useState} from 'react';
+import React, {useRef, useState} from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
 import Day from './components/Day';
 import Month from './components/Month';
 
 const Main = () => {
   const [selectedDay, setSelectedDay] = useState(null);
+  const changeTabRef = useRef();
+
+  const changeTabToDay = () => {
+    changeTabRef.current.changeTabToDay();
+  };
 
   const componentList = [
     <Day {...{selectedDay, setSelectedDay}} />,
     <Text>Week Component</Text>,
-    <Month {...{selectedDay, setSelectedDay}} />,
+    <Month {...{selectedDay, setSelectedDay, changeTabToDay}} />,
   ];
 
   return (
     <SafeAreaView style={styles.container}>
       <Selector
+        ref={changeTabRef}
         labels={['Day', 'Week', 'Month']}
         components={componentList}
         defaultIndex={2}
